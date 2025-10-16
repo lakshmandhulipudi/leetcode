@@ -4,5 +4,4 @@ class Solution {
         return group[group.length-1].length();
 
         
-    }
-}
+    }}
