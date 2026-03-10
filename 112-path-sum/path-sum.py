@@ -6,15 +6,54 @@
 #         self.right = right
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-        if root == None: return False
-        d = deque([[root,root.val]])
-        while d:
-            node,su = d.popleft()
-            if node.left == None and node.right == None and su==targetSum:
-                return True
-            if node.left:
-                d.append([node.left,node.left.val+su])
-            if node.right:
-                d.append([node.right,node.right.val+su])
-        return False
+        if root==None:
+            return False
+        if root.val==targetSum and root.left==None and root.right==None:
+            return True
+        return self.hasPathSum(root.left,targetSum-root.val) or self.hasPathSum(root.right,targetSum-root.val)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # iterstive
+    # def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    #     if root == None: return False
+    #     d = deque([[root,root.val]])
+    #     while d:
+    #         node,su = d.popleft()
+    #         if node.left == None and node.right == None and su==targetSum:
+    #             return True
+    #         if node.left:
+    #             d.append([node.left,node.left.val+su])
+    #         if node.right:
+    #             d.append([node.right,node.right.val+su])
+    #     return False
         
