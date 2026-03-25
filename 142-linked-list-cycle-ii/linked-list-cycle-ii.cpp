@@ -11,7 +11,7 @@ public:
     ListNode *detectCycle(ListNode *head) {
         if(head == NULL) return NULL;
         ListNode*f=head,*s=head;
-        while(f->next&&f->next->next){
+        while(f->next && f->next->next){
             f=f->next->next;
             s=s->next;
             if(f==s){
