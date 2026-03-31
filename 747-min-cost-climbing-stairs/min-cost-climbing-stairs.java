@@ -1,15 +1,13 @@
 class Solution {
-    int mc(int[] cost,int n,int []memo){
-        if(memo[n]!=-1)return memo[n];
-        if(n==0||n==1)return memo[n]=0;
-        if(n==2)return memo[n]=Math.min(cost[0],cost[1]);
-        return memo[n]=Math.min(cost[n-1]+mc(cost,n-1,memo),cost[n-2]+mc(cost,n-2,memo));
-    }
+    
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
-        int[] memo = new int[n+1];
-        Arrays.fill(memo, -1);
-        return mc(cost,n,memo);
+        int dp[] = new int[n+1];
+        dp[0]=dp[1]=0;dp[2]=Math.min(cost[0],cost[1]);
+        for(int i = 3;i <= n;i++){
+            dp[i] = Math.min(cost[i-1]+dp[i-1],cost[i-2]+dp[i-2]);
+        }
+        return dp[n];
 
         
     }
